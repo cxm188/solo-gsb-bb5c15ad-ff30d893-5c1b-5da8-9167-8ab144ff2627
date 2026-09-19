@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>对比度调色板求解器</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>对比度调色板求解器</h1>
+    <p class="subtitle">
+      分支定界全局搜索 · WCAG 对比度约束 · 最少改色 &amp; 最小 CIEDE2000 色差
+    </p>
+  </header>
+
+  <main>
+    <section class="card">
+      <div class="card-head">
+        <h2>1. 导入数据</h2>
+        <div class="btn-row">
+          <button id="btn-sample" type="button" class="btn btn-ghost">载入示例（可解）</button>
+          <button id="btn-sample-unsat" type="button" class="btn btn-ghost">载入示例（无解）</button>
+          <label class="btn btn-ghost file-btn">
+            导入 JSON 文件
+            <input id="file-input" type="file" accept=".json,application/json" hidden />
+          </label>
+        </div>
+      </div>
+      <textarea id="json-input" spellcheck="false"
+        placeholder='{"tokens":[{"name":"text","value":"#767676"}, ...], "candidates":[...], "constraints":[{"fg":"text","bg":"bg","minContrast":4.5}], "locked":[]}'></textarea>
+      <p class="hint">
+        上限：10 个令牌 · 12 个候选色 · 30 条约束。数据仅在本机内存中处理，不会发送到浏览器之外。
+      </p>
+      <div id="parse-error" class="error-banner" hidden></div>
+    </section>
+
+    <section class="card" id="lock-card" hidden>
+      <div class="card-head">
+        <h2>2. 锁定令牌</h2>
+        <div class="btn-row">
+          <button id="btn-solve" type="button" class="btn btn-primary">开始求解</button>
+        </div>
+      </div>
+      <div id="token-list" class="token-grid"></div>
+      <div id="candidate-chips" class="chips"></div>
+    </section>
+
+    <section class="card" id="result-card" hidden>
+      <div class="card-head">
+        <h2>3. 求解结果</h2>
+        <div class="btn-row">
+          <button id="btn-export" type="button" class="btn btn-primary">导出替换后的令牌 JSON</button>
+        </div>
+      </div>
+      <div id="result-summary"></div>
+      <div id="result-tokens"></div>
+      <h3 class="section-title">约束对比度（改前 → 改后）</h3>
+      <div id="result-constraints"></div>
+      <div id="result-conflicts"></div>
+    </section>
+  </main>
+
+  <footer>
+    <span>数据仅保存在本机内存中 · <code>docker compose up --build</code> 后访问 <code>http://localhost:3000</code></span>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

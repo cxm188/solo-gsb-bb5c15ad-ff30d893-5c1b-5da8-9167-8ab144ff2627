@@ -1,0 +1,13 @@
+{
+  "tokens": [
+    { "name": "bg", "value": "#ffffff" },
+    { "name": "brand", "value": "#f0c0c0" },
+    { "name": "text", "value": "#8a8a8a" }
+  ],
+  "candidates": ["#101828", "#374151", "#6b7280", "#f9fafb"],
+  "constraints": [
+    { "fg": "brand", "bg": "bg", "minContrast": 7.0 },
+    { "fg": "text", "bg": "brand", "minContrast": 4.5 }
+  ],
+  "locked": ["bg", "brand"]
+}

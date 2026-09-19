@@ -1,0 +1,15 @@
+{
+  "name": "contrast-palette-solver",
+  "version": "1.0.0",
+  "description": "基于分支定界搜索的 WCAG 对比度调色板求解器",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}

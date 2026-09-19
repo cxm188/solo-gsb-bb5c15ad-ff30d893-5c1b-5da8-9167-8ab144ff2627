@@ -1,0 +1,22 @@
+{
+  "tokens": [
+    { "name": "bg", "value": "#ffffff" },
+    { "name": "text", "value": "#767676" },
+    { "name": "muted", "value": "#9a9a9a" },
+    { "name": "title", "value": "#5d6b85" },
+    { "name": "primary", "value": "#6a8dff" }
+  ],
+  "candidates": [
+    "#000000", "#101828", "#1f3a8a", "#2456d6",
+    "#3b6cf0", "#6a8dff", "#9db4ff", "#c9d6ff",
+    "#4b5563", "#111827", "#e8eefc", "#ffffff"
+  ],
+  "constraints": [
+    { "fg": "text", "bg": "bg", "minContrast": 4.5 },
+    { "fg": "muted", "bg": "bg", "minContrast": 4.5 },
+    { "fg": "title", "bg": "bg", "minContrast": 4.5 },
+    { "fg": "primary", "bg": "bg", "minContrast": 4.5 },
+    { "fg": "bg", "bg": "primary", "minContrast": 3.0 }
+  ],
+  "locked": []
+}
